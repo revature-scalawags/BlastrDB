@@ -10,7 +10,14 @@ object CSVReader extends App {
   for (ftchfile <- folder) {
     val file = io.Source.fromFile(ftchfile)
     for (line <- file.getLines) {
-      println(ftchfile.getAbsolutePath().substring(ftchfile.getAbsolutePath().lastIndexOf("\\")+1, ftchfile.getAbsolutePath().length()-4) + " | " + line)
+      println(
+        ftchfile
+          .getAbsolutePath()
+          .substring(
+            ftchfile.getAbsolutePath().lastIndexOf("\\") + 1,
+            ftchfile.getAbsolutePath().length() - 4
+          ) + " | " + line
+      )
     }
   }
 
