@@ -1,12 +1,16 @@
-lazy val root = (project in file(".")).
-  settings(
-    inThisBuild(List(
+lazy val root = (project in file("."))
+.settings(
+  inThisBuild(
+    List(
       organizationName := "Scalawags, Inc",
-      organizationHomepage := Some(url("https://github.com/revature-scalawags")),
+      organizationHomepage := Some(
+        url("https://github.com/revature-scalawags")
+      ),
       scalaVersion := "2.13.3"
-    )),
-    name := "blastrDB"
+    )
   )
+)
+name := "blastrDB"
 version := "1.0"
 
 //libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.2" % Test
