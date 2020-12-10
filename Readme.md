@@ -9,12 +9,12 @@ sbt compile
 
 ### Test
 ```bash
-{test command placeholder}
+sbt test
 ```
 
 ### Run
 ```bash
-{Run command placeholder}
+sbt -error run
 ```
 ## Project Details 
 ### Requirements
