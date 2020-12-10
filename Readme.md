@@ -18,5 +18,6 @@ sbt -error run
 ```
 ## Project Details 
 ### Requirements
+ - csv files must have file name formatted for proper brand name
 
 ### Features
