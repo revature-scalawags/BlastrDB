@@ -29,6 +29,7 @@ project/plugins/project/
 !.vscode/tasks.json
 !.vscode/launch.json
 *.code-workspace
+.scalafmt.conf
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
