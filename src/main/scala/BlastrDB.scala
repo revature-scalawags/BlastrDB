@@ -13,7 +13,30 @@ import net.ruippeixotog.scalascraper.model._
   * pulls data from the csv-files folder and parses them into a formatted list.
   */
 object BlastrDB extends App {
-  pullData("https://nerf.fandom.com/wiki/Category:Nerf_blasters", "Nerf","csv-files\\Nerf.csv")
+  pullData(
+    "https://nerf.fandom.com/wiki/Category:Nerf_blasters",
+    "Nerf",
+    "csv-files\\Nerf.csv",
+    false
+  )
+  pullData(
+    "https://nerf.fandom.com/wiki/Category:Nerf_blasters?from=Furyfire",
+    "Nerf",
+    "csv-files\\Nerf.csv",
+    true
+  )
+  pullData(
+    "https://nerf.fandom.com/wiki/Category:Nerf_blasters?from=Pyragon+%28VTX%29",
+    "Nerf",
+    "csv-files\\Nerf.csv",
+    true
+  )
+  pullData(
+    "https://nerf.fandom.com/wiki/Category:Nerf_blasters?from=Switchfire+%28Nerf+Action%29",
+    "Nerf",
+    "csv-files\\Nerf.csv",
+    true
+  )
   //TODO: pull data from Adventure Force website
   //TODO: pull data from a 3rd party website
   val folder = getListOfFiles("./csv-files")
@@ -51,21 +74,33 @@ object BlastrDB extends App {
     }
   }
 
-  def pullData(link: String, brand: String, output: String) = {
+  def pullData(
+      link: String,
+      brand: String,
+      output: String,
+      appending: Boolean
+  ) = {
     val browser = JsoupBrowser()
     val doc = browser.get(link)
     var scrape = Iterable[String]()
-    
+    var bdw: BufferedWriter = null
+
     val bufferDataFile = new File(output)
-    val bdw = new BufferedWriter(new FileWriter(bufferDataFile))
-    bdw.write("")
+
+    if (appending == false) {
+      bdw = new BufferedWriter(new FileWriter(bufferDataFile))
+      bdw.write("")
+    } else {
+      bdw = new BufferedWriter(new FileWriter(bufferDataFile, true))
+    }
     brand match {
-      case "Nerf" => scrape = doc >> attrs("title")("a[class=category-page__member-link]")
+      case "Nerf" =>
+        scrape = doc >> attrs("title")("a[class=category-page__member-link]")
       //case "Adventure Force" => <<insert data fetch command here>>
       case _ => println("Invalid Brand Name")
     }
-    
-    for(name <- scrape) {
+
+    for (name <- scrape) {
       bdw.append(name + "\n")
     }
     bdw.close()
