@@ -15,11 +15,12 @@ object BlastrDB extends App {
         ftchfile
           .getAbsolutePath()
           .substring(
+            // this line formats the path to display the file name as the brand
             ftchfile.getAbsolutePath().lastIndexOf("\\") + 1,
             ftchfile.getAbsolutePath().length() - 4
           ) + " | " + line
       ) //TODO: replace println with an output to file
-    }
+    } //TODO: Replace for loops with futures call
   }
 
   /** getListOfFiles
