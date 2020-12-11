@@ -3,12 +3,19 @@ package csv
 import java.io.File
 import java.io.BufferedWriter
 import java.io.FileWriter
+import net.ruippeixotog.scalascraper.browser.JsoupBrowser
+import net.ruippeixotog.scalascraper.dsl.DSL._
+import net.ruippeixotog.scalascraper.dsl.DSL.Extract._
+import net.ruippeixotog.scalascraper.dsl.DSL.Parse._
+import net.ruippeixotog.scalascraper.model._
 
 /** BlastrDB
   * pulls data from the csv-files folder and parses them into a formatted list.
   */
 object BlastrDB extends App {
-  println("Brand\t\t|\tBlaster Name")
+  pullData("https://nerf.fandom.com/wiki/Category:Nerf_blasters", "Nerf","csv-files\\Nerf.csv")
+  //TODO: pull data from Adventure Force website
+  //TODO: pull data from a 3rd party website
   val folder = getListOfFiles("./csv-files")
   val bufferFile = new File("compiled-list.txt")
   val bw = new BufferedWriter(new FileWriter(bufferFile))
@@ -42,5 +49,25 @@ object BlastrDB extends App {
     } else {
       List[File]()
     }
+  }
+
+  def pullData(link: String, brand: String, output: String) = {
+    val browser = JsoupBrowser()
+    val doc = browser.get(link)
+    var scrape = Iterable[String]()
+    
+    val bufferDataFile = new File(output)
+    val bdw = new BufferedWriter(new FileWriter(bufferDataFile))
+    bdw.write("")
+    brand match {
+      case "Nerf" => scrape = doc >> attrs("title")("a[class=category-page__member-link]")
+      //case "Adventure Force" => <<insert data fetch command here>>
+      case _ => println("Invalid Brand Name")
+    }
+    
+    for(name <- scrape) {
+      bdw.append(name + "\n")
+    }
+    bdw.close()
   }
 }

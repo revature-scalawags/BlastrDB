@@ -13,4 +13,4 @@ lazy val root = (project in file("."))
 name := "blastrDB"
 version := "1.0"
 
-//libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.2" % Test
+libraryDependencies += "net.ruippeixotog" %% "scala-scraper" % "2.2.0"
