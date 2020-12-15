@@ -10,7 +10,7 @@ import net.ruippeixotog.scalascraper.dsl.DSL.Parse._
 import net.ruippeixotog.scalascraper.model._
 
 /** BlastrDB
-  * pulls data from the csv-files folder and parses them into a formatted list.
+  * pulls data from a formatted website link and parses them into formatted lists.
   */
 object BlastrDB extends App {
   pullData(
@@ -27,15 +27,33 @@ object BlastrDB extends App {
   )
   pullData(
     "https://nerf.fandom.com/wiki/Category:Nerf_blasters?from=Pyragon+%28VTX%29",
-    "Nerf",
+    "Nerf Wiki",
     "csv-files\\Nerf.csv",
     true
   )
   pullData(
     "https://nerf.fandom.com/wiki/Category:Nerf_blasters?from=Switchfire+%28Nerf+Action%29",
-    "Nerf",
+    "Nerf Wiki",
     "csv-files\\Nerf.csv",
     true
+  )
+  pullData(
+    "https://nerf.fandom.com/wiki/Category:Adventure_Force_blasters",
+    "Nerf Wiki",
+    "csv-files\\Adventure Force.csv",
+    false
+  )
+  pullData(
+    "https://nerf.fandom.com/wiki/Category:Buzz_Bee_blasters",
+    "Nerf Wiki",
+    "csv-files\\Buzz bee.csv",
+    false
+  )
+  pullData(
+    "https://nerf.fandom.com/wiki/Category:BOOMco._blasters",
+    "Nerf Wiki",
+    "csv-files\\BoomCo.csv",
+    false
   )
   //TODO: pull data from Adventure Force website
   //TODO: pull data from a 3rd party website
@@ -74,9 +92,18 @@ object BlastrDB extends App {
     }
   }
 
+  /** pullData
+    * pulls blaster data from a webpage based on the specific formatting of the webpage and formats it into a list in a csv file of the brand name
+    *
+    * @param link the complete URL of the webpage to pull from
+    * @param site the website which the browser scraper will format the pull request from.
+    *             See the match/case statement below for different websites to format to.
+    * @param output the file path of the csv file to output to
+    * @param appending Boolean value for if the new data is to be appended to a file (true), or overwrite the current data (false).
+    */
   def pullData(
       link: String,
-      brand: String,
+      site: String,
       output: String,
       appending: Boolean
   ) = {
@@ -93,11 +120,11 @@ object BlastrDB extends App {
     } else {
       bdw = new BufferedWriter(new FileWriter(bufferDataFile, true))
     }
-    brand match {
-      case "Nerf" =>
+    site match {
+      case "Nerf Wiki" =>
         scrape = doc >> attrs("title")("a[class=category-page__member-link]")
-      //case "Adventure Force" => <<insert data fetch command here>>
-      case _ => println("Invalid Brand Name")
+      case _ =>
+        println("Invalid Brand Name")
     }
 
     for (name <- scrape) {
