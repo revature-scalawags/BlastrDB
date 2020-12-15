@@ -9,7 +9,6 @@ import net.ruippeixotog.scalascraper.dsl.DSL.Extract._
 import net.ruippeixotog.scalascraper.dsl.DSL.Parse._
 import net.ruippeixotog.scalascraper.model._
 import java.io.BufferedReader
-import com.gargoylesoftware.htmlunit.javascript.host.file.FileReader
 import java.io.StringWriter
 import java.io.PrintWriter
 
