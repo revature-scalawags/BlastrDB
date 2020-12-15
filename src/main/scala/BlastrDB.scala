@@ -17,6 +17,8 @@ import java.io.PrintWriter
   * pulls data from a formatted website link and parses them into formatted lists.
   * 
   * @version 0.13
+  * @todo add runtime CLI menu to allow for user interaction
+  * @todo add hooks and ouput for mongoDB
   */
 object BlastrDB extends App {
   println("BlastrDB starting...")
