@@ -18,6 +18,7 @@ import java.io.PrintWriter
   * @version 0.13
   * @todo add runtime CLI menu to allow for user interaction
   * @todo add hooks and ouput for mongoDB
+  * @todo add scalatest items
   */
 object BlastrDB extends App {
   println("BlastrDB starting...")
@@ -75,7 +76,7 @@ object BlastrDB extends App {
   debugFileBuffer.write("buffer closed.\n")
 
   /** getListOfFiles
-    * helper method that populates a list of files drawn from a specified folder
+    * populates a list of files drawn from a specified folder
     *
     * @param dir = the directory to populate the files from
     * @return - List[File] (a list of File objects)
@@ -144,11 +145,18 @@ object BlastrDB extends App {
     bdw.close()
   }
 
+  /** getStackTraceString
+    * gets the stack trace of a thrown exception and formats it
+    * into a string for logging purposes
+    * 
+    * @param t the exception thrown
+    */
   def getStackTraceAsString(t: Throwable) = {
     val sw = new StringWriter
     t.printStackTrace(new PrintWriter(sw))
     sw.toString
   }
+
   debugFileBuffer.write("debug log complete.")
   debugFileBuffer.close()
   println(

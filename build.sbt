@@ -14,3 +14,5 @@ name := "blastrDB"
 version := "1.0"
 
 libraryDependencies += "net.ruippeixotog" %% "scala-scraper" % "2.2.0"
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.2.2"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.2" % "test"
