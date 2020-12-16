@@ -7,14 +7,26 @@ import net.ruippeixotog.scalascraper.browser.JsoupBrowser
 import net.ruippeixotog.scalascraper.dsl.DSL._
 import net.ruippeixotog.scalascraper.dsl.DSL.Extract._
 import net.ruippeixotog.scalascraper.dsl.DSL.Parse._
-import net.ruippeixotog.scalascraper.model._
 import java.io.BufferedReader
 import java.io.StringWriter
 import java.io.PrintWriter
+import org.mongodb.scala._
+import org.mongodb.scala.model.Filters._
+import org.mongodb.scala.model.Projections._
+import org.mongodb.scala.model.Sorts._
+import scala.concurrent.Await
+import scala.concurrent.duration.Duration
+import java.util.concurrent.TimeUnit
+
+
+
+/*mongoDB Hooks
+  val client = MongoClient()
+*/
 
 /** BlastrDB
   * pulls data from a formatted website link and parses them into formatted lists.
-  * 
+  *
   * @version 0.13
   * @todo add runtime CLI menu to allow for user interaction
   * @todo add hooks and ouput for mongoDB
@@ -32,6 +44,16 @@ object BlastrDB extends App {
   val loggerFile = new File("debugLog.txt")
   val debugFileBuffer = new BufferedWriter(new FileWriter(loggerFile))
   debugFileBuffer.write("Debug Log start:\n")
+
+  //database hooks
+  
+  val mongoClient: MongoClient = MongoClient()
+  val database: MongoDatabase = mongoClient.getDatabase("testdb")
+  val collection = database.getCollection("name").find()
+  /* for(i <- collection) {
+    println(i("Brand").asString.getValue + " " + i("Name").asString.getValue)
+  } */ //this 'for' loop prints out the db collection as a formatted list of strings
+
   val dataPullSource = io.Source.fromFile("dataPullParse.csv")
   for (line <- dataPullSource.getLines) {
     val cols = line.split(",").map(_.trim)
@@ -148,7 +170,7 @@ object BlastrDB extends App {
   /** getStackTraceString
     * gets the stack trace of a thrown exception and formats it
     * into a string for logging purposes
-    * 
+    *
     * @param t the exception thrown
     */
   def getStackTraceAsString(t: Throwable) = {
