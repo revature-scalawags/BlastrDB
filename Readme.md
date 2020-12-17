@@ -25,12 +25,9 @@ sbt -error run
 
 ### Project Features
 - [x] Documentation (scaladocs, Readme, etc)
-- [ ] Unit Testing (scalatest)
-- [ ] Data Persistance (files & NoSQL)
+- [x] Unit Testing (scalatest)
+- [x] Data Persistance (files & NoSQL)
 - [ ] CLI flags and argument parsing
 - [ ] Environment variables
 - [x] Logging
 - [ ] Concurrency
-
-### Other Items to note
-- Incorrectly input websites to scrape will produce a detailed exception (check the debugLog.txt file), but will not crash the program. There is written instructions notifying the user when this happens, but it will not keep the rest of the program from running (it's not considered a fatal exception).

@@ -1,4 +1,4 @@
-package csv
+package BlastrDB
 
 import java.io.File
 import java.io.BufferedWriter
@@ -21,10 +21,9 @@ import java.util.concurrent.TimeUnit
 /** BlastrDB
   * pulls data from a formatted website link and parses them into formatted lists.
   *
-  * @version 0.19
-  * @todo add runtime CLI menu to allow for user interaction
-  * @todo add hooks and ouput for mongoDB
-  * @todo add scalatest items
+  * @version 0.2
+  * @todo reformat documentation to more clearly
+  *       define 'what is happening, and where?'
   */
 object BlastrDB extends App {
   println("\nBlastrDB starting...")
@@ -53,18 +52,24 @@ object BlastrDB extends App {
   )
   while (userInput != "exit") {
     println("Please enter a command: ")
-    userInput = scala.io.StdIn.readLine()
+    userInput = getUserInput()
     debugFileBuffer.write(s"user input: '$userInput'\n")
     userInput match {
       case "pull" => dataWriteToFile(debugFileBuffer)
       case "write" => writeToBrandFiles(debugFileBuffer)
       case "exit" => println("Exiting program...")
+      case _ => {
+        println("Input not recognized, please try a different input.")
+      }
     }
   }
+
+  def getUserInput() = scala.io.StdIn.readLine()
 
   //TODO: pull data from a 3rd party website
 
   def writeToBrandFiles(debugFile: BufferedWriter) {
+    debugFile.write("Writing data to seperate CSV files based on brand...\n")
     println("Writing data to seperate CSV files based on brand...")
     val folder = getListOfFiles("./csv-files")
     val bufferFile = new File("compiled-list.csv")
@@ -84,9 +89,9 @@ object BlastrDB extends App {
         )
       }
     }
-    debugFileBuffer.write("Data write to files complete, closing buffer...\n")
+    debugFile.write("Data write to files complete, closing local compiled-list.csv buffer...\n")
     bw.close()
-    debugFileBuffer.write("buffer closed.\n")
+    debugFile.write("local buffer closed.\n")
     println("Data write to files complete.")
   }
 
@@ -127,7 +132,8 @@ object BlastrDB extends App {
       link: String,
       site: String,
       output: String,
-      appending: Boolean
+      appending: Boolean,
+      fileBuffer: BufferedWriter
   ) = {
     val browser = JsoupBrowser()
     val doc = browser.get(link)
@@ -140,7 +146,7 @@ object BlastrDB extends App {
       bdw = new BufferedWriter(new FileWriter(bufferDataFile))
       bdw.write("")
     } else {
-      debugFileBuffer.write(
+      fileBuffer.write(
         s"\tAdditional page detected for $output, proceeding to append...\n"
       )
       bdw = new BufferedWriter(new FileWriter(bufferDataFile, true))
@@ -149,7 +155,7 @@ object BlastrDB extends App {
       case "Nerf Wiki" =>
         scrape = doc >> attrs("title")("a[class=category-page__member-link]")
       case _ =>
-        debugFileBuffer.write(
+        fileBuffer.write(
           "Invalid Site Name detected, no list items added to scraper\n"
         )
     }
@@ -179,25 +185,25 @@ object BlastrDB extends App {
     * @param fileBuffer the debug file
     */
   def dataWriteToFile(fileBuffer: BufferedWriter) = {
-    debugFileBuffer.write("Beginning data pull from websites...\n")
+    fileBuffer.write("Beginning data pull from websites...\n")
     println("Beginning Data pull from websites...")
     val dataPullSource = io.Source.fromFile("dataPullParse.csv")
     for (line <- dataPullSource.getLines) {
       val cols = line.split(",").map(_.trim)
-      debugFileBuffer.write("Pulling data from " + cols(0) + "... \n")
+      fileBuffer.write("Pulling data from " + cols(0) + "... \n")
       try {
-        pullData(cols(0), cols(1), cols(2), cols(3).toBoolean)
+        pullData(cols(0), cols(1), cols(2), cols(3).toBoolean,fileBuffer)
       } catch {
         case e: IllegalArgumentException =>
           println(
             "!!!Incorrect formatting found in dataPullParse.csv, check debug.txt for details!!!"
           )
-          debugFileBuffer.write(getStackTraceAsString(e))
+          fileBuffer.write(getStackTraceAsString(e))
 
       }
     }
     println("Data pull complete.")
-    debugFileBuffer.write(
+    fileBuffer.write(
       "Data pull complete, writing data to aggregate csv file \"compiled-list.csv\"...\n"
     )
     dataPullSource.close
