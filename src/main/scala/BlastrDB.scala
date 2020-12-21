@@ -17,11 +17,13 @@ import org.mongodb.scala.model.Sorts._
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
 import java.util.concurrent.TimeUnit
+import java.time.format.DateTimeFormatter
+import java.time.LocalDateTime
 
 /** BlastrDB
   * pulls data from a formatted website link and parses them into formatted lists.
   *
-  * @version 0.2
+  * @version 0.21
   * @todo reformat documentation to more clearly
   *       define 'what is happening, and where?'
   */
@@ -29,18 +31,21 @@ object BlastrDB extends App {
   println("\nBlastrDB starting...")
 
   val loggerFile = new File("debugLog.txt")
-  val debugFileBuffer = new BufferedWriter(new FileWriter(loggerFile))
-  debugFileBuffer.write("Debug Log start:\n")
+  val debugFileBuffer = new BufferedWriter(new FileWriter(loggerFile, true))
+  var currentTime = getCurrentTime()
+  debugFileBuffer.write(s"\n$currentTime Debug Log start:\n")
 
   //database hooks
-  debugFileBuffer.write("Connecting to MongoDB...\n")
+  currentTime = getCurrentTime()
+  debugFileBuffer.write(s"$currentTime Connecting to MongoDB...\n")
   val mongoClient: MongoClient = MongoClient()
   val database: MongoDatabase = mongoClient.getDatabase("testdb")
   val collection = database.getCollection("name").find()
   //for(i <- collection) {
   //  println(i("Brand").asString.getValue + " " + i("Name").asString.getValue)
   //} //this 'for' loop prints out the db collection as a formatted list of strings
-  debugFileBuffer.write("MongoDB successfully connected.\n")
+  currentTime = getCurrentTime()
+  debugFileBuffer.write(s"$currentTime MongoDB successfully connected.\n")
 
   //CLI
   var userInput = ""
@@ -53,7 +58,8 @@ object BlastrDB extends App {
   while (userInput != "exit") {
     println("Please enter a command: ")
     userInput = getUserInput()
-    debugFileBuffer.write(s"user input: '$userInput'\n")
+    currentTime = getCurrentTime()
+    debugFileBuffer.write(s"$currentTime user input: '$userInput'\n")
     userInput match {
       case "pull" => dataWriteToFile(debugFileBuffer)
       case "write" => writeToBrandFiles(debugFileBuffer)
@@ -64,12 +70,23 @@ object BlastrDB extends App {
     }
   }
 
+  /**
+    * 
+    *
+    * @return
+    */
   def getUserInput() = scala.io.StdIn.readLine()
 
   //TODO: pull data from a 3rd party website
 
+  /**
+    * 
+    *
+    * @param debugFile
+    */
   def writeToBrandFiles(debugFile: BufferedWriter) {
-    debugFile.write("Writing data to seperate CSV files based on brand...\n")
+    currentTime = getCurrentTime()
+    debugFile.write(s"$currentTime Writing data to seperate CSV files based on brand...\n")
     println("Writing data to seperate CSV files based on brand...")
     val folder = getListOfFiles("./csv-files")
     val bufferFile = new File("compiled-list.csv")
@@ -89,9 +106,11 @@ object BlastrDB extends App {
         )
       }
     }
-    debugFile.write("Data write to files complete, closing local compiled-list.csv buffer...\n")
+    currentTime = getCurrentTime()
+    debugFile.write(s"$currentTime Data write to files complete, closing local compiled-list.csv buffer...\n")
     bw.close()
-    debugFile.write("local buffer closed.\n")
+    currentTime = getCurrentTime()
+    debugFile.write(s"$currentTime local buffer closed.\n")
     println("Data write to files complete.")
   }
 
@@ -146,18 +165,21 @@ object BlastrDB extends App {
       bdw = new BufferedWriter(new FileWriter(bufferDataFile))
       bdw.write("")
     } else {
+      currentTime = getCurrentTime()
       fileBuffer.write(
-        s"\tAdditional page detected for $output, proceeding to append...\n"
+        s"$currentTime \tAdditional page detected for $output, proceeding to append...\n"
       )
       bdw = new BufferedWriter(new FileWriter(bufferDataFile, true))
     }
     site match {
       case "Nerf Wiki" =>
         scrape = doc >> attrs("title")("a[class=category-page__member-link]")
-      case _ =>
+      case _ => {
+        currentTime = getCurrentTime()
         fileBuffer.write(
-          "Invalid Site Name detected, no list items added to scraper\n"
+          s"$currentTime Invalid Site Name detected, no list items added to scraper\n"
         )
+      }
     }
 
     for (name <- scrape) {
@@ -185,12 +207,14 @@ object BlastrDB extends App {
     * @param fileBuffer the debug file
     */
   def dataWriteToFile(fileBuffer: BufferedWriter) = {
-    fileBuffer.write("Beginning data pull from websites...\n")
+    currentTime = getCurrentTime()
+    fileBuffer.write(s"$currentTime Beginning data pull from websites...\n")
     println("Beginning Data pull from websites...")
     val dataPullSource = io.Source.fromFile("dataPullParse.csv")
     for (line <- dataPullSource.getLines) {
       val cols = line.split(",").map(_.trim)
-      fileBuffer.write("Pulling data from " + cols(0) + "... \n")
+      currentTime = getCurrentTime()
+      fileBuffer.write(s"$currentTime Pulling data from " + cols(0) + "... \n")
       try {
         pullData(cols(0), cols(1), cols(2), cols(3).toBoolean,fileBuffer)
       } catch {
@@ -203,13 +227,22 @@ object BlastrDB extends App {
       }
     }
     println("Data pull complete.")
-    fileBuffer.write(
-      "Data pull complete, writing data to aggregate csv file \"compiled-list.csv\"...\n"
-    )
+    currentTime = getCurrentTime()
+    fileBuffer.write(currentTime + " Data pull complete, writing data to aggregate csv file \"compiled-list.csv\"...\n")
     dataPullSource.close
   }
 
-  debugFileBuffer.write("debug log complete.")
+  /**
+    * 
+    *
+    * @return
+    */
+  def getCurrentTime(): String = {
+    DateTimeFormatter.ofPattern("dd-MM-yyyy @ HH:mm:ss |").format(LocalDateTime.now)
+  }
+
+  currentTime = getCurrentTime()
+  debugFileBuffer.write(s"$currentTime debug logging complete.")
   debugFileBuffer.close()
   println(
     "BlastrDB closed, check debugLog.txt for a detailed runtime log."
