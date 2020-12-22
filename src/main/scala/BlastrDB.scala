@@ -22,12 +22,10 @@ import net.ruippeixotog.scalascraper.dsl.DSL.Parse._
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-
-
 /** BlastrDB
   * pulls data from a formatted website link and parses them into formatted lists.
   *
-  * @version 0.22
+  * @version 0.23
   */
 object BlastrDB extends App {
   println("\nBlastrDB starting...")
@@ -61,7 +59,6 @@ object BlastrDB extends App {
   )
   while (userInput != "exit") {
     println("Please enter a command: ")
-    //FIXME: "Please enter a command" displays before database operations are completed.
     userInput = scala.io.StdIn.readLine()
     currentTime = getCurrentTime()
     debugFileBuffer.write(s"$currentTime user input: '$userInput'\n")
@@ -73,10 +70,18 @@ object BlastrDB extends App {
           "\t| Displaying records from MongoDB (NOTE: if this list is empty, " +
             "make sure that\n\t| the mongoDB is currently running in Docker.)"
         )
-        for(i <- collection.find()) {
-          println(i("Brand").asString().getValue + " " + i("Name").asString.getValue)
+        currentTime = getCurrentTime()
+        debugFileBuffer.write(
+          s"$currentTime Displaying records from MongoDB...\n"
+        )
+        for (i <- collection.find()) {
+          println(
+            i("Brand").asString().getValue + " " + i("Name").asString.getValue
+          )
         }
         Thread.sleep(1000)
+        currentTime = getCurrentTime()
+        debugFileBuffer.write(s"$currentTime Records displayed in terminal.\n")
       }
       case "add"  => addDocument()
       case "exit" => println("Exiting program...")
@@ -90,6 +95,8 @@ object BlastrDB extends App {
     * adds a new record to the mongoDB from user input parameters
     */
   def addDocument() {
+    currentTime = getCurrentTime()
+    debugFileBuffer.write(s"$currentTime Entering 'add document' menu...\n")
     var addingEntry = "Y"
     while (addingEntry != "N") {
       println(
@@ -97,29 +104,70 @@ object BlastrDB extends App {
           "\t\tBrand name: "
       )
       val brandName = scala.io.StdIn.readLine()
+      currentTime = getCurrentTime()
+      debugFileBuffer.write(s"$currentTime user input: '$brandName'\n")
       println("\t\tBlaster Name: ")
       val blasterName = scala.io.StdIn.readLine()
+      currentTime = getCurrentTime()
+      debugFileBuffer.write(s"$currentTime user input: '$blasterName'\n")
       println(s"\t\tadd '$brandName $blasterName' to the database? Y/N")
       val addEntry = scala.io.StdIn.readLine()
+      currentTime = getCurrentTime()
+      debugFileBuffer.write(s"$currentTime user input: '$addEntry'\n")
       if (addEntry == "Y") {
-        val doc: Document = Document("Brand" -> brandName,"Name" -> blasterName)
+        currentTime = getCurrentTime()
+        debugFileBuffer.write(
+          s"$currentTime user confirmed to add entry to mongoDB, subscribing change...\n"
+        )
+        val doc: Document =
+          Document("Brand" -> brandName, "Name" -> blasterName)
         collection
           .insertOne(doc)
           .subscribe(new Observer[Completed] {
-            override def onNext(result: Completed): Unit = println("Inserted")
-            override def onError(e: Throwable): Unit = println(s"Failed, $e")
-            override def onComplete(): Unit = println("Completed")
+            override def onNext(result: Completed): Unit = {
+              println("Inserted")
+              currentTime = getCurrentTime()
+              debugFileBuffer
+                .write(s"$currentTime @MongoDB: Entry inserted successsfully\n")
+            }
+            override def onError(e: Throwable): Unit = {
+              println(s"Failed, $e")
+              currentTime = getCurrentTime()
+              debugFileBuffer
+                .write(s"$currentTime @MongoDB: Entry failed due to error: $e\n")
+            }
+            override def onComplete(): Unit = {
+              println("Completed")
+              currentTime = getCurrentTime()
+              debugFileBuffer.write(s"$currentTime @MongoDB: Entry completed\n")
+            }
           })
-          Thread.sleep(1000)
-      } else {
+        Thread.sleep(1000)
+        currentTime = getCurrentTime()
+        debugFileBuffer.write(
+          s"$currentTime entry addition subscription completed. See above line for status of insertion.\n"
+        )
+      } else if (addEntry == "N") {
         println("entry addition cancelled. Add another entry? Y/N")
         addingEntry = scala.io.StdIn.readLine()
+        currentTime = getCurrentTime()
+        debugFileBuffer.write(s"$currentTime user input: '$addingEntry'\n")
+
+      } else {
+        println(
+          "Invalid input, entry addition cancelled. Add another entry? Y/N"
+        )
+        addingEntry = scala.io.StdIn.readLine()
+        currentTime = getCurrentTime()
+        debugFileBuffer.write(s"$currentTime user input: '$addingEntry'\n")
       }
     }
     println("Returning to main menu...")
+    currentTime = getCurrentTime()
+    debugFileBuffer.write(
+      s"$currentTime User exited entry addition screen, returning to previous menu...\n"
+    )
   }
-
-  //TODO: pull data from a 3rd party website? (optional)
 
   /** writetoBrandFiles
     * pulls the files from the ./csv-files folder and compiles them into a
