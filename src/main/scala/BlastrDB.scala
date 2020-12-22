@@ -3,29 +3,31 @@ package BlastrDB
 import java.io.File
 import java.io.BufferedWriter
 import java.io.FileWriter
+
+import org.mongodb.scala.bson.collection._
+import org.mongodb.scala.MongoClient
+import org.mongodb.scala.MongoDatabase
+import org.mongodb.scala.MongoCollection
+import org.mongodb.scala.Observer
+import org.mongodb.scala.Completed
+
+import java.io.StringWriter
+import java.io.PrintWriter
+
 import net.ruippeixotog.scalascraper.browser.JsoupBrowser
 import net.ruippeixotog.scalascraper.dsl.DSL._
 import net.ruippeixotog.scalascraper.dsl.DSL.Extract._
 import net.ruippeixotog.scalascraper.dsl.DSL.Parse._
-import java.io.BufferedReader
-import java.io.StringWriter
-import java.io.PrintWriter
-import org.mongodb.scala._
-import org.mongodb.scala.model.Filters._
-import org.mongodb.scala.model.Projections._
-import org.mongodb.scala.model.Sorts._
-import scala.concurrent.Await
-import scala.concurrent.duration.Duration
-import java.util.concurrent.TimeUnit
-import java.time.format.DateTimeFormatter
+
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
+
 
 /** BlastrDB
   * pulls data from a formatted website link and parses them into formatted lists.
   *
-  * @version 0.21
-  * @todo reformat documentation to more clearly
-  *       define 'what is happening, and where?'
+  * @version 0.22
   */
 object BlastrDB extends App {
   println("\nBlastrDB starting...")
@@ -38,31 +40,45 @@ object BlastrDB extends App {
   //database hooks
   currentTime = getCurrentTime()
   debugFileBuffer.write(s"$currentTime Connecting to MongoDB...\n")
+
   val mongoClient: MongoClient = MongoClient()
   val database: MongoDatabase = mongoClient.getDatabase("testdb")
-  val collection = database.getCollection("name").find()
-  //for(i <- collection) {
-  //  println(i("Brand").asString.getValue + " " + i("Name").asString.getValue)
-  //} //this 'for' loop prints out the db collection as a formatted list of strings
+  val collection: MongoCollection[Document] = database.getCollection("name")
+  Thread.sleep(1000)
+
   currentTime = getCurrentTime()
   debugFileBuffer.write(s"$currentTime MongoDB successfully connected.\n")
 
   //CLI
   var userInput = ""
   println(
-    "Welcome to BlastrDB, the following options below are avilable to you:\n" +
+    "\nWelcome to BlastrDB, the following options below are avilable to you:\n" +
       "\tpull:\tPulls the data from the list of websites.\n" +
-      "\twrite:\tWrites the data to seperate CSV files based on brand.\n" +
+      "\twrite:\tWrites the data to a compiled CSV file from the \\csv-files folder.\n" +
+      "\tshow:\tlists all of the current blasters contained in the database.\n" +
+      "\tadd:\tBrings you to the menu for adding new entries to the database.\n" +
       "\texit:\tExits the program."
   )
   while (userInput != "exit") {
     println("Please enter a command: ")
-    userInput = getUserInput()
+    //FIXME: "Please enter a command" displays before database operations are completed.
+    userInput = scala.io.StdIn.readLine()
     currentTime = getCurrentTime()
     debugFileBuffer.write(s"$currentTime user input: '$userInput'\n")
     userInput match {
-      case "pull" => dataWriteToFile(debugFileBuffer)
+      case "pull"  => dataWriteToFile(debugFileBuffer)
       case "write" => writeToBrandFiles(debugFileBuffer)
+      case "show" => {
+        println(
+          "\t| Displaying records from MongoDB (NOTE: if this list is empty, " +
+            "make sure that\n\t| the mongoDB is currently running in Docker.)"
+        )
+        for(i <- collection.find()) {
+          println(i("Brand").asString().getValue + " " + i("Name").asString.getValue)
+        }
+        Thread.sleep(1000)
+      }
+      case "add"  => addDocument()
       case "exit" => println("Exiting program...")
       case _ => {
         println("Input not recognized, please try a different input.")
@@ -70,23 +86,52 @@ object BlastrDB extends App {
     }
   }
 
-  /**
-    * 
-    *
-    * @return
+  /** addDocument
+    * adds a new record to the mongoDB from user input parameters
     */
-  def getUserInput() = scala.io.StdIn.readLine()
+  def addDocument() {
+    var addingEntry = "Y"
+    while (addingEntry != "N") {
+      println(
+        "\tAdding a new entry to the database requires the following inputs:\n" +
+          "\t\tBrand name: "
+      )
+      val brandName = scala.io.StdIn.readLine()
+      println("\t\tBlaster Name: ")
+      val blasterName = scala.io.StdIn.readLine()
+      println(s"\t\tadd '$brandName $blasterName' to the database? Y/N")
+      val addEntry = scala.io.StdIn.readLine()
+      if (addEntry == "Y") {
+        val doc: Document = Document("Brand" -> brandName,"Name" -> blasterName)
+        collection
+          .insertOne(doc)
+          .subscribe(new Observer[Completed] {
+            override def onNext(result: Completed): Unit = println("Inserted")
+            override def onError(e: Throwable): Unit = println(s"Failed, $e")
+            override def onComplete(): Unit = println("Completed")
+          })
+          Thread.sleep(1000)
+      } else {
+        println("entry addition cancelled. Add another entry? Y/N")
+        addingEntry = scala.io.StdIn.readLine()
+      }
+    }
+    println("Returning to main menu...")
+  }
 
-  //TODO: pull data from a 3rd party website
+  //TODO: pull data from a 3rd party website? (optional)
 
-  /**
-    * 
+  /** writetoBrandFiles
+    * pulls the files from the ./csv-files folder and compiles them into a
+    * single csv file containing the contents of all the seperate csv files
     *
-    * @param debugFile
+    * @param debugFile the debug file for logging
     */
   def writeToBrandFiles(debugFile: BufferedWriter) {
     currentTime = getCurrentTime()
-    debugFile.write(s"$currentTime Writing data to seperate CSV files based on brand...\n")
+    debugFile.write(
+      s"$currentTime Writing data to seperate CSV files based on brand...\n"
+    )
     println("Writing data to seperate CSV files based on brand...")
     val folder = getListOfFiles("./csv-files")
     val bufferFile = new File("compiled-list.csv")
@@ -107,7 +152,9 @@ object BlastrDB extends App {
       }
     }
     currentTime = getCurrentTime()
-    debugFile.write(s"$currentTime Data write to files complete, closing local compiled-list.csv buffer...\n")
+    debugFile.write(
+      s"$currentTime Data write to files complete, closing local compiled-list.csv buffer...\n"
+    )
     bw.close()
     currentTime = getCurrentTime()
     debugFile.write(s"$currentTime local buffer closed.\n")
@@ -115,10 +162,11 @@ object BlastrDB extends App {
   }
 
   /** getListOfFiles
-    * populates a list of files drawn from a specified folder
+    * helper function for writetoBrandFiles that compiles the list of files
+    * contained within a given directory.
     *
     * @param dir = the directory to populate the files from
-    * @return - List[File] (a list of File objects)
+    * @return = List[File] (a list of File objects)
     */
   def getListOfFiles(dir: String): List[File] = {
     val output = new File(dir)
@@ -127,6 +175,50 @@ object BlastrDB extends App {
     } else {
       List[File]()
     }
+  }
+
+  /** getStackTraceString
+    * gets the stack trace of a thrown exception and formats it
+    * into a string for logging purposes
+    *
+    * @param t the exception thrown
+    */
+  def getStackTraceAsString(t: Throwable) = {
+    val sw = new StringWriter
+    t.printStackTrace(new PrintWriter(sw))
+    sw.toString
+  }
+
+  /** dataWriteToFile
+    * pulls the data from the dataPullParse.csv file and uses it to call the
+    * 'pullData' function for each line of the dataPullParse.csv file
+    *
+    * @param fileBuffer the debug file
+    */
+  def dataWriteToFile(fileBuffer: BufferedWriter) = {
+    currentTime = getCurrentTime()
+    fileBuffer.write(s"$currentTime Beginning data pull from websites...\n")
+    println("Beginning Data pull from websites...")
+    val dataPullSource = io.Source.fromFile("dataPullParse.csv")
+    for (line <- dataPullSource.getLines) {
+      val cols = line.split(",").map(_.trim)
+      currentTime = getCurrentTime()
+      fileBuffer.write(s"$currentTime Pulling data from " + cols(0) + "... \n")
+      try {
+        pullData(cols(0), cols(1), cols(2), cols(3).toBoolean, fileBuffer)
+      } catch {
+        case e: IllegalArgumentException =>
+          println(
+            "!!!Incorrect formatting found in dataPullParse.csv, check debug.txt for details!!!"
+          )
+          fileBuffer.write(getStackTraceAsString(e))
+
+      }
+    }
+    println("Data pull complete.")
+    currentTime = getCurrentTime()
+    fileBuffer.write(currentTime + " Data pull complete.\n")
+    dataPullSource.close
   }
 
   /** pullData
@@ -139,12 +231,14 @@ object BlastrDB extends App {
     * @param output the file path of the csv file to output to
     * @param appending Boolean value for if the new data is to be appended to a file (true),
     *                    or overwrite the current data (false).
+    * @param fileBuffer the debug file for logging
     *
     * @example pullData(
     *             "https://example.site",
     *             "Brand",
     *             "folder\\File.txt",
-    *             false
+    *             false,
+    *             debugFileBuffer
     *          )
     */
   def pullData(
@@ -188,61 +282,19 @@ object BlastrDB extends App {
     bdw.close()
   }
 
-  /** getStackTraceString
-    * gets the stack trace of a thrown exception and formats it
-    * into a string for logging purposes
-    *
-    * @param t the exception thrown
-    */
-  def getStackTraceAsString(t: Throwable) = {
-    val sw = new StringWriter
-    t.printStackTrace(new PrintWriter(sw))
-    sw.toString
-  }
-
-  /** dataWriteToFile
-    * pulls the data from the dataPullParse.csv file and writes it into
-    * an aggregate csv file titled 'compiled-list.csv' utilizing the 'pullData'function
-    *
-    * @param fileBuffer the debug file
-    */
-  def dataWriteToFile(fileBuffer: BufferedWriter) = {
-    currentTime = getCurrentTime()
-    fileBuffer.write(s"$currentTime Beginning data pull from websites...\n")
-    println("Beginning Data pull from websites...")
-    val dataPullSource = io.Source.fromFile("dataPullParse.csv")
-    for (line <- dataPullSource.getLines) {
-      val cols = line.split(",").map(_.trim)
-      currentTime = getCurrentTime()
-      fileBuffer.write(s"$currentTime Pulling data from " + cols(0) + "... \n")
-      try {
-        pullData(cols(0), cols(1), cols(2), cols(3).toBoolean,fileBuffer)
-      } catch {
-        case e: IllegalArgumentException =>
-          println(
-            "!!!Incorrect formatting found in dataPullParse.csv, check debug.txt for details!!!"
-          )
-          fileBuffer.write(getStackTraceAsString(e))
-
-      }
-    }
-    println("Data pull complete.")
-    currentTime = getCurrentTime()
-    fileBuffer.write(currentTime + " Data pull complete, writing data to aggregate csv file \"compiled-list.csv\"...\n")
-    dataPullSource.close
-  }
-
-  /**
-    * 
+  /** getCurrentTime
+    * gets the current system time and formats it for logging purposes
     *
     * @return
     */
   def getCurrentTime(): String = {
-    DateTimeFormatter.ofPattern("dd-MM-yyyy @ HH:mm:ss |").format(LocalDateTime.now)
+    DateTimeFormatter
+      .ofPattern("dd-MM-yyyy @ HH:mm:ss |")
+      .format(LocalDateTime.now)
   }
 
   currentTime = getCurrentTime()
-  debugFileBuffer.write(s"$currentTime debug logging complete.")
+  debugFileBuffer.write(s"$currentTime debug logging complete.\n")
   debugFileBuffer.close()
   println(
     "BlastrDB closed, check debugLog.txt for a detailed runtime log."

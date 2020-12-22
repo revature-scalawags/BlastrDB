@@ -57,7 +57,7 @@ class TestSpec extends AnyFlatSpec {
       }
     }
     currentTime = BlastrDB.getCurrentTime()
-    debugFileBuffer.write(s"$currentTime TestSpec testing complete, closing buffer and exiting...")
+    debugFileBuffer.write(s"$currentTime TestSpec testing complete, closing buffer and exiting...\n")
     debugFileBuffer.close()
   }
 }

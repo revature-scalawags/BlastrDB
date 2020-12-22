@@ -4,3 +4,750 @@
 21-12-2020 @ 13:30:03 | MongoDB successfully connected.
 21-12-2020 @ 13:30:05 | user input: 'exit'
 21-12-2020 @ 13:30:05 | debug logging complete.
+21-12-2020 @ 13:36:17 | Debug Log start:
+21-12-2020 @ 13:36:17 | Connecting to MongoDB...
+21-12-2020 @ 13:36:17 | MongoDB successfully connected.
+21-12-2020 @ 13:36:20 | user input: 'pull'
+21-12-2020 @ 13:36:20 | Beginning data pull from websites...
+21-12-2020 @ 13:36:20 | Pulling data from https://nerf.fandom.com/wiki/Category:Nerf_blasters... 
+21-12-2020 @ 13:36:20 | Pulling data from https://nerf.fandom.com/wiki/Category:Nerf_blasters?from=Furyfire... 
+21-12-2020 @ 13:36:20 | 	Additional page detected for csv-files\\Nerf.csv, proceeding to append...
+21-12-2020 @ 13:36:20 | Pulling data from https://nerf.fandom.com/wiki/Category:Nerf_blasters?from=Pyragon+%28VTX%29... 
+21-12-2020 @ 13:36:21 | 	Additional page detected for csv-files\\Nerf.csv, proceeding to append...
+21-12-2020 @ 13:36:21 | Pulling data from https://nerf.fandom.com/wiki/Category:Nerf_blasters?from=Switchfire+%28Nerf+Action%29... 
+21-12-2020 @ 13:36:21 | 	Additional page detected for csv-files\\Nerf.csv, proceeding to append...
+21-12-2020 @ 13:36:21 | Pulling data from https://nerf.fandom.com/wiki/Category:Adventure_Force_blasters... 
+21-12-2020 @ 13:36:21 | Pulling data from https://nerf.fandom.com/wiki/Category:Buzz_Bee_blasters... 
+21-12-2020 @ 13:36:21 | Pulling data from https://nerf.fandom.com/wiki/Category:BOOMco._blasters... 
+21-12-2020 @ 13:36:21 | Data pull complete, writing data to aggregate csv file "compiled-list.csv"...
+21-12-2020 @ 13:36:25 | user input: 'write'
+21-12-2020 @ 13:36:25 | Writing data to seperate CSV files based on brand...
+21-12-2020 @ 13:36:25 | Data write to files complete, closing local compiled-list.csv buffer...
+21-12-2020 @ 13:36:25 | local buffer closed.
+21-12-2020 @ 13:36:27 | user input: 'exit'
+21-12-2020 @ 13:36:27 | debug logging complete.
+21-12-2020 @ 13:53:33 | Debug Log start:
+21-12-2020 @ 13:53:33 | Connecting to MongoDB...
+21-12-2020 @ 13:53:33 | MongoDB successfully connected.
+21-12-2020 @ 13:53:36 | user input: 'show'
+21-12-2020 @ 13:55:41 | user input: 'exit'
+21-12-2020 @ 13:55:41 | debug logging complete.
+
+21-12-2020 @ 13:55:59 | Debug Log start:
+21-12-2020 @ 13:55:59 | Connecting to MongoDB...
+21-12-2020 @ 13:55:59 | MongoDB successfully connected.
+21-12-2020 @ 13:56:01 | user input: 'show'
+21-12-2020 @ 13:59:29 | user input: 'exit'
+21-12-2020 @ 13:59:29 | debug logging complete.
+
+21-12-2020 @ 13:59:45 | Debug Log start:
+21-12-2020 @ 13:59:45 | Connecting to MongoDB...
+21-12-2020 @ 13:59:45 | MongoDB successfully connected.
+21-12-2020 @ 13:59:47 | user input: 'show'
+21-12-2020 @ 14:00:20 | user input: 'exit'
+21-12-2020 @ 14:00:20 | debug logging complete.
+
+21-12-2020 @ 14:00:36 | Debug Log start:
+21-12-2020 @ 14:00:36 | Connecting to MongoDB...
+21-12-2020 @ 14:00:36 | MongoDB successfully connected.
+21-12-2020 @ 14:00:38 | user input: 'show'
+21-12-2020 @ 14:00:57 | user input: 'exit'
+21-12-2020 @ 14:00:57 | debug logging complete.
+
+21-12-2020 @ 14:03:59 | Debug Log start:
+21-12-2020 @ 14:03:59 | Connecting to MongoDB...
+21-12-2020 @ 14:04:00 | MongoDB successfully connected.
+21-12-2020 @ 14:04:03 | user input: 'show'
+21-12-2020 @ 14:05:17 | user input: 'exit'
+21-12-2020 @ 14:05:17 | debug logging complete.
+
+21-12-2020 @ 14:06:40 | Debug Log start:
+21-12-2020 @ 14:06:40 | Connecting to MongoDB...
+21-12-2020 @ 14:06:40 | MongoDB successfully connected.
+21-12-2020 @ 14:06:48 | user input: 'show'
+21-12-2020 @ 14:08:41 | user input: 'exit'
+21-12-2020 @ 14:08:41 | debug logging complete.
+
+21-12-2020 @ 14:08:55 | Debug Log start:
+21-12-2020 @ 14:08:55 | Connecting to MongoDB...
+21-12-2020 @ 14:08:56 | MongoDB successfully connected.
+21-12-2020 @ 14:08:57 | user input: 'show'
+21-12-2020 @ 14:09:21 | user input: 'exit'
+21-12-2020 @ 14:09:21 | debug logging complete.
+
+21-12-2020 @ 14:09:37 | Debug Log start:
+21-12-2020 @ 14:09:37 | Connecting to MongoDB...
+21-12-2020 @ 14:09:37 | MongoDB successfully connected.
+21-12-2020 @ 14:09:39 | user input: 'show'
+21-12-2020 @ 14:11:20 | user input: 'exit'
+21-12-2020 @ 14:11:20 | debug logging complete.
+
+21-12-2020 @ 14:11:35 | Debug Log start:
+21-12-2020 @ 14:11:35 | Connecting to MongoDB...
+21-12-2020 @ 14:11:35 | MongoDB successfully connected.
+21-12-2020 @ 14:11:37 | user input: 'show'
+21-12-2020 @ 14:12:43 | user input: 'exit'
+21-12-2020 @ 14:12:43 | debug logging complete.
+
+21-12-2020 @ 14:12:57 | Debug Log start:
+21-12-2020 @ 14:12:57 | Connecting to MongoDB...
+21-12-2020 @ 14:12:58 | MongoDB successfully connected.
+21-12-2020 @ 14:13:00 | user input: 'show'
+21-12-2020 @ 14:17:41 | user input: 'exit'
+21-12-2020 @ 14:17:41 | debug logging complete.
+
+21-12-2020 @ 14:17:56 | Debug Log start:
+21-12-2020 @ 14:17:56 | Connecting to MongoDB...
+21-12-2020 @ 14:17:56 | MongoDB successfully connected.
+21-12-2020 @ 14:17:59 | user input: 'show'
+21-12-2020 @ 14:18:26 | user input: 'show'
+21-12-2020 @ 14:18:28 | user input: 'exit'
+21-12-2020 @ 14:18:28 | debug logging complete.
+
+21-12-2020 @ 14:18:43 | Debug Log start:
+21-12-2020 @ 14:18:43 | Connecting to MongoDB...
+21-12-2020 @ 14:18:43 | MongoDB successfully connected.
+21-12-2020 @ 14:18:46 | user input: 'show'
+21-12-2020 @ 14:18:51 | user input: 'exit'
+21-12-2020 @ 14:18:51 | debug logging complete.
+
+21-12-2020 @ 14:23:04 | Debug Log start:
+21-12-2020 @ 14:23:04 | Connecting to MongoDB...
+21-12-2020 @ 14:23:04 | MongoDB successfully connected.
+21-12-2020 @ 14:23:07 | user input: 'show'
+21-12-2020 @ 14:23:44 | user input: 'exit'
+21-12-2020 @ 14:23:44 | debug logging complete.
+
+21-12-2020 @ 14:23:59 | Debug Log start:
+21-12-2020 @ 14:23:59 | Connecting to MongoDB...
+21-12-2020 @ 14:24:00 | MongoDB successfully connected.
+21-12-2020 @ 14:24:01 | user input: 'show'
+21-12-2020 @ 14:24:18 | user input: 'exit'
+21-12-2020 @ 14:24:18 | debug logging complete.
+
+21-12-2020 @ 14:32:59 | Debug Log start:
+21-12-2020 @ 14:32:59 | Connecting to MongoDB...
+21-12-2020 @ 14:32:59 | MongoDB successfully connected.
+21-12-2020 @ 14:33:02 | user input: 'show'
+21-12-2020 @ 14:33:12 | user input: 'exit'
+21-12-2020 @ 14:33:12 | debug logging complete.
+
+21-12-2020 @ 15:32:10 | Debug Log start:
+21-12-2020 @ 15:32:10 | Connecting to MongoDB...
+21-12-2020 @ 15:32:10 | MongoDB successfully connected.
+21-12-2020 @ 15:32:15 | user input: 'add'
+21-12-2020 @ 15:34:54 | user input: 'exit'
+21-12-2020 @ 15:34:54 | debug logging complete.
+
+21-12-2020 @ 15:35:11 | Debug Log start:
+21-12-2020 @ 15:35:11 | Connecting to MongoDB...
+21-12-2020 @ 15:35:11 | MongoDB successfully connected.
+21-12-2020 @ 15:35:13 | user input: 'add'
+21-12-2020 @ 15:35:48 | user input: 'show'
+21-12-2020 @ 15:43:20 | user input: 'exit'
+21-12-2020 @ 15:43:20 | debug logging complete.
+
+21-12-2020 @ 16:15:50 | Debug Log start:
+21-12-2020 @ 16:15:50 | Connecting to MongoDB...
+21-12-2020 @ 16:15:50 | MongoDB successfully connected.
+21-12-2020 @ 16:15:58 | user input: 'add'
+21-12-2020 @ 16:16:13 | user input: 'Show'
+21-12-2020 @ 16:16:15 | user input: 'show'
+21-12-2020 @ 16:16:22 | user input: 'exirt'
+21-12-2020 @ 16:16:23 | user input: 'exit'
+21-12-2020 @ 16:16:23 | debug logging complete.
+
+21-12-2020 @ 16:16:46 | Debug Log start:
+21-12-2020 @ 16:16:46 | Connecting to MongoDB...
+21-12-2020 @ 16:16:46 | MongoDB successfully connected.
+21-12-2020 @ 16:17:38 | user input: 'show'
+21-12-2020 @ 16:17:49 | user input: 'add'
+21-12-2020 @ 16:44:54 | user input: 'exit'
+21-12-2020 @ 16:44:54 | debug logging complete.
+
+21-12-2020 @ 16:45:23 | Debug Log start:
+21-12-2020 @ 16:45:23 | Connecting to MongoDB...
+21-12-2020 @ 16:45:23 | MongoDB successfully connected.
+21-12-2020 @ 16:45:33 | user input: 'show'
+21-12-2020 @ 16:56:31 | user input: 'exit'
+21-12-2020 @ 16:56:31 | debug logging complete.
+
+21-12-2020 @ 16:57:41 | Debug Log start:
+21-12-2020 @ 16:57:41 | Connecting to MongoDB...
+21-12-2020 @ 16:57:41 | MongoDB successfully connected.
+21-12-2020 @ 16:57:44 | user input: 'show'
+21-12-2020 @ 16:57:56 | user input: 'show'
+21-12-2020 @ 16:58:10 | user input: 'add'
+21-12-2020 @ 16:58:37 | user input: 'exit'
+21-12-2020 @ 16:58:37 | debug logging complete.
+
+21-12-2020 @ 16:59:32 | Debug Log start:
+21-12-2020 @ 16:59:32 | Connecting to MongoDB...
+21-12-2020 @ 16:59:32 | MongoDB successfully connected.
+21-12-2020 @ 16:59:36 | user input: 'show'
+21-12-2020 @ 16:59:38 | user input: 'add'
+21-12-2020 @ 16:59:52 | user input: 'exit'
+21-12-2020 @ 16:59:52 | debug logging complete.
+
+21-12-2020 @ 17:01:24 | Debug Log start:
+21-12-2020 @ 17:01:24 | Connecting to MongoDB...
+21-12-2020 @ 17:01:24 | MongoDB successfully connected.
+21-12-2020 @ 17:01:27 | user input: 'show'
+21-12-2020 @ 17:01:31 | user input: 'exit'
+21-12-2020 @ 17:01:31 | debug logging complete.
+
+21-12-2020 @ 17:08:22 | Debug Log start:
+21-12-2020 @ 17:08:22 | Connecting to MongoDB...
+21-12-2020 @ 17:08:22 | MongoDB successfully connected.
+21-12-2020 @ 17:08:28 | user input: 'pull'
+21-12-2020 @ 17:08:28 | Beginning data pull from websites...
+21-12-2020 @ 17:08:28 | Pulling data from https://nerf.fandom.com/wiki/Category:Nerf_blasters... 
+21-12-2020 @ 17:08:29 | Pulling data from https://nerf.fandom.com/wiki/Category:Nerf_blasters?from=Furyfire... 
+21-12-2020 @ 17:08:29 | 	Additional page detected for csv-files\\Nerf.csv, proceeding to append...
+21-12-2020 @ 17:08:29 | Pulling data from https://nerf.fandom.com/wiki/Category:Nerf_blasters?from=Pyragon+%28VTX%29... 
+21-12-2020 @ 17:08:29 | 	Additional page detected for csv-files\\Nerf.csv, proceeding to append...
+21-12-2020 @ 17:08:29 | Pulling data from https://nerf.fandom.com/wiki/Category:Nerf_blasters?from=Switchfire+%28Nerf+Action%29... 
+21-12-2020 @ 17:08:30 | 	Additional page detected for csv-files\\Nerf.csv, proceeding to append...
+21-12-2020 @ 17:08:30 | Pulling data from https://nerf.fandom.com/wiki/Category:Adventure_Force_blasters... 
+21-12-2020 @ 17:08:30 | Pulling data from https://nerf.fandom.com/wiki/Category:Buzz_Bee_blasters... 
+21-12-2020 @ 17:08:30 | Pulling data from https://nerf.fandom.com/wiki/Category:BOOMco._blasters... 
+21-12-2020 @ 17:08:30 | Data pull complete.
+21-12-2020 @ 17:08:33 | user input: 'write'
+21-12-2020 @ 17:08:33 | Writing data to seperate CSV files based on brand...
+21-12-2020 @ 17:08:33 | Data write to files complete, closing local compiled-list.csv buffer...
+21-12-2020 @ 17:08:33 | local buffer closed.
+21-12-2020 @ 17:08:35 | user input: 'show'
+21-12-2020 @ 17:08:40 | user input: 'exit'
+21-12-2020 @ 17:08:40 | debug logging complete.
+
+21-12-2020 @ 17:12:14 | Debug Log start:
+21-12-2020 @ 17:12:14 | Connecting to MongoDB...
+21-12-2020 @ 17:12:15 | MongoDB successfully connected.
+21-12-2020 @ 17:12:25 | user input: 'show'
+21-12-2020 @ 17:13:20 | user input: 'ei'
+21-12-2020 @ 17:13:25 | user input: 'exit'
+21-12-2020 @ 17:13:25 | debug logging complete.
+
+21-12-2020 @ 17:13:43 | Debug Log start:
+21-12-2020 @ 17:13:43 | Connecting to MongoDB...
+21-12-2020 @ 17:13:43 | MongoDB successfully connected.
+21-12-2020 @ 17:13:46 | user input: 'show'
+21-12-2020 @ 17:13:49 | user input: 'exit'
+21-12-2020 @ 17:13:49 | debug logging complete.
+
+21-12-2020 @ 17:15:12 | Debug Log start:
+21-12-2020 @ 17:15:12 | Connecting to MongoDB...
+21-12-2020 @ 17:15:12 | MongoDB successfully connected.
+21-12-2020 @ 17:15:14 | user input: 'show'
+21-12-2020 @ 17:15:16 | user input: 'exit'
+21-12-2020 @ 17:15:16 | debug logging complete.
+
+21-12-2020 @ 17:15:48 | Debug Log start:
+21-12-2020 @ 17:15:48 | Connecting to MongoDB...
+21-12-2020 @ 17:15:48 | MongoDB successfully connected.
+21-12-2020 @ 17:16:10 | user input: 'show'
+21-12-2020 @ 17:16:12 | user input: 'exit'
+21-12-2020 @ 17:16:12 | debug logging complete.
+
+21-12-2020 @ 17:21:34 | Debug Log start:
+21-12-2020 @ 17:21:34 | Connecting to MongoDB...
+21-12-2020 @ 17:21:35 | MongoDB successfully connected.
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | user input: 'null'
+21-12-2020 @ 17:23:05 | us
+21-12-2020 @ 17:23:25 | Debug Log start:
+21-12-2020 @ 17:23:25 | Connecting to MongoDB...
+21-12-2020 @ 17:23:25 | MongoDB successfully connected.
+21-12-2020 @ 17:23:31 | user input: 'show'
+21-12-2020 @ 17:23:33 | user input: 'show'
+21-12-2020 @ 17:23:34 | user input: 'show'
+21-12-2020 @ 17:23:37 | user input: 'add'
+21-12-2020 @ 17:23:52 | user input: 'exit'
+21-12-2020 @ 17:23:52 | debug logging complete.
+
+21-12-2020 @ 17:24:34 | Debug Log start:
+21-12-2020 @ 17:24:34 | Connecting to MongoDB...
+21-12-2020 @ 17:24:34 | MongoDB successfully connected.
+21-12-2020 @ 17:24:38 | user input: 'add'
+21-12-2020 @ 17:29:16 | user input: 'exit'
+21-12-2020 @ 17:29:16 | debug logging complete.
+
+21-12-2020 @ 17:29:36 | Debug Log start:
+21-12-2020 @ 17:29:36 | Connecting to MongoDB...
+21-12-2020 @ 17:29:36 | MongoDB successfully connected.
+21-12-2020 @ 17:29:40 | user input: 'show'
+21-12-2020 @ 17:29:48 | user input: 'add'
+21-12-2020 @ 17:30:03 | user input: 'show'
+21-12-2020 @ 17:45:11 | user input: 'exit'
+21-12-2020 @ 17:45:11 | debug logging complete.
+
+21-12-2020 @ 17:53:46 | Debug Log start:
+21-12-2020 @ 17:53:46 | Connecting to MongoDB...
+21-12-2020 @ 17:53:46 | MongoDB successfully connected.
+21-12-2020 @ 17:53:50 | user input: 'show'
+21-12-2020 @ 17:53:53 | user input: 'add'
+21-12-2020 @ 17:54:15 | user input: 'exit'
+21-12-2020 @ 17:54:15 | debug logging complete.
+
+21-12-2020 @ 17:56:54 | Debug Log start:
+21-12-2020 @ 17:56:54 | Connecting to MongoDB...
+21-12-2020 @ 17:56:54 | MongoDB successfully connected.
+21-12-2020 @ 17:56:57 | user input: 'show'
+21-12-2020 @ 17:57:02 | user input: 'exit'
+21-12-2020 @ 17:57:02 | debug logging complete.
+
+21-12-2020 @ 17:57:25 | Debug Log start:
+21-12-2020 @ 17:57:25 | Connecting to MongoDB...
+21-12-2020 @ 17:57:25 | MongoDB successfully connected.
+21-12-2020 @ 17:57:27 | user input: 'show'
+21-12-2020 @ 17:57:33 | user input: 'exit'
+21-12-2020 @ 17:57:33 | debug logging complete.
+
+21-12-2020 @ 18:40:22 | Debug Log start:
+21-12-2020 @ 18:40:22 | Connecting to MongoDB...
+21-12-2020 @ 18:40:22 | MongoDB successfully connected.
+21-12-2020 @ 18:40:26 | user input: 'show'
+21-12-2020 @ 18:41:49 | user input: 'exit'
+21-12-2020 @ 18:41:49 | debug logging complete.
+
+21-12-2020 @ 18:42:03 | Debug Log start:
+21-12-2020 @ 18:42:03 | Connecting to MongoDB...
+21-12-2020 @ 18:42:04 | MongoDB successfully connected.
+21-12-2020 @ 18:42:06 | user input: 'show'
+21-12-2020 @ 18:42:38 | user input: 'exit'
+21-12-2020 @ 18:42:38 | debug logging complete.
+
+21-12-2020 @ 18:42:53 | Debug Log start:
+21-12-2020 @ 18:42:53 | Connecting to MongoDB...
+21-12-2020 @ 18:42:53 | MongoDB successfully connected.
+21-12-2020 @ 18:42:55 | user input: 'show'
+21-12-2020 @ 18:43:10 | user input: 'show'
+21-12-2020 @ 18:43:13 | user input: 'add'
+21-12-2020 @ 18:43:28 | user input: 'Exit'
+21-12-2020 @ 18:44:05 | user input: 'ext'
+21-12-2020 @ 18:44:08 | user input: 'exit'
+21-12-2020 @ 18:44:08 | debug logging complete.
+
+21-12-2020 @ 18:45:47 | Debug Log start:
+21-12-2020 @ 18:45:47 | Connecting to MongoDB...
+21-12-2020 @ 18:45:47 | MongoDB successfully connected.
+21-12-2020 @ 18:45:50 | user input: 'add'
+21-12-2020 @ 18:46:33 | user input: 'exit'
+21-12-2020 @ 18:46:33 | debug logging complete.
+
+21-12-2020 @ 18:47:29 | Debug Log start:
+21-12-2020 @ 18:47:29 | Connecting to MongoDB...
+21-12-2020 @ 18:47:30 | MongoDB successfully connected.
+21-12-2020 @ 18:47:36 | user input: 'show'
+21-12-2020 @ 18:48:00 | user input: 'exit'
+21-12-2020 @ 18:48:00 | debug logging complete.
+
+22-12-2020 @ 11:20:54 | Debug Log start:
+22-12-2020 @ 11:20:54 | Connecting to MongoDB...
+22-12-2020 @ 11:20:55 | MongoDB successfully connected.
+22-12-2020 @ 11:20:58 | user input: 'show'
+22-12-2020 @ 11:21:44 | user input: 'add'
+22-12-2020 @ 11:22:07 | user input: 'show'
+22-12-2020 @ 11:22:12 | user input: 'exit'
+22-12-2020 @ 11:22:12 | debug logging complete.
+
+22-12-2020 @ 11:22:50 | Debug Log start:
+22-12-2020 @ 11:22:50 | Connecting to MongoDB...
+22-12-2020 @ 11:22:51 | MongoDB successfully connected.
+22-12-2020 @ 11:23:23 | user input: 'pull'
+22-12-2020 @ 11:23:23 | Beginning data pull from websites...
+22-12-2020 @ 11:23:23 | Pulling data from https://nerf.fandom.com/wiki/Category:Nerf_blasters... 
+22-12-2020 @ 11:23:24 | Pulling data from https://nerf.fandom.com/wiki/Category:Nerf_blasters?from=Furyfire... 
+22-12-2020 @ 11:23:24 | 	Additional page detected for csv-files\\Nerf.csv, proceeding to append...
+22-12-2020 @ 11:23:24 | Pulling data from https://nerf.fandom.com/wiki/Category:Nerf_blasters?from=Pyragon+%28VTX%29... 
+22-12-2020 @ 11:23:25 | 	Additional page detected for csv-files\\Nerf.csv, proceeding to append...
+22-12-2020 @ 11:23:25 | Pulling data from https://nerf.fandom.com/wiki/Category:Nerf_blasters?from=Switchfire+%28Nerf+Action%29... 
+22-12-2020 @ 11:23:25 | 	Additional page detected for csv-files\\Nerf.csv, proceeding to append...
+22-12-2020 @ 11:23:25 | Pulling data from https://nerf.fandom.com/wiki/Category:Adventure_Force_blasters... 
+22-12-2020 @ 11:23:25 | Pulling data from https://nerf.fandom.com/wiki/Category:Buzz_Bee_blasters... 
+22-12-2020 @ 11:23:26 | Pulling data from https://nerf.fandom.com/wiki/Category:BOOMco._blasters... 
+22-12-2020 @ 11:23:26 | Data pull complete.
+22-12-2020 @ 11:23:28 | user input: 'write'
+22-12-2020 @ 11:23:28 | Writing data to seperate CSV files based on brand...
+22-12-2020 @ 11:23:28 | Data write to files complete, closing local compiled-list.csv buffer...
+22-12-2020 @ 11:23:28 | local buffer closed.
+22-12-2020 @ 11:23:30 | user input: 'show'
+22-12-2020 @ 11:23:35 | user input: 'add'
+22-12-2020 @ 11:24:11 | user input: 'show'
+22-12-2020 @ 11:24:15 | user input: 'exit'
+22-12-2020 @ 11:24:15 | debug logging complete.
